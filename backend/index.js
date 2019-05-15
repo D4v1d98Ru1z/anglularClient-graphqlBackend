@@ -1,5 +1,5 @@
 const graphqlHTTP = require('express-graphql')
-const schema = require('./schema')
+const schema = require('./schema.js')
 const express = require('express')
 const app = express()
 
@@ -12,6 +12,7 @@ app.use('/graphql', graphqlHTTP({
 }))
 
 // Server listener
-app.listen(PORT)
-console.log(`Server running on http://localhost:${PORT}`)
-console.log(`Graphql running http://localhost:${PORT}/graphql`)
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`)
+  console.log(`Graphql running http://localhost:${PORT}/graphql`)
+})
